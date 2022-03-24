@@ -1,8 +1,9 @@
 <script context="module">
     export async function load({fetch, params}) {
         const id = params.id
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        const guide = await res.json()
+        // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        const res = await fetch(`/guides/${id}.json`)
+        const { guide } = await res.json()
         if (res.ok) {
             return {
                 props: {
@@ -20,6 +21,7 @@
 
 <script>
     export let guide
+    console.log(guide)
 </script>
 
 <div class="guide">
